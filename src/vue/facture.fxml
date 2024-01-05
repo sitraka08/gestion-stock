@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane_client" styleClass="anchorpane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.FactureControlleur">
+   <children>
+      <BorderPane prefHeight="550.0" prefWidth="900.0">
+         <top>
+      		<Pane prefHeight="29.0" prefWidth="900.0" styleClass="header" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+      			<children>
+      				<HBox layoutX="843.0" layoutY="7.0" prefHeight="12.0" prefWidth="48.0">
+      					<children>
+      						<Circle fx:id="btn_minimise" fill="#21ff3f" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
+      						<Circle fill="#ffbe21" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+      							<HBox.margin>
+      								<Insets left="5.0" />
+      							</HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+      						</Circle>
+      						<Circle fx:id="btn_close" fill="#ff5a21" onMouseClicked="#close_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+      							<HBox.margin>
+      								<Insets left="5.0" right="5.0" />
+      							</HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+      						</Circle>
+      					</children>
+      				</HBox>
+      			</children>
+      		</Pane>
+         </top>
+         <center>
+      		<BorderPane fx:id="bdpane_client" prefHeight="200.0" prefWidth="200.0" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+      			<center>
+      				<Pane prefHeight="521.0" prefWidth="540.0" style="-fx-background-color: #F3F3F5;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane layoutX="48.0" layoutY="49.0" prefHeight="424.0" prefWidth="652.0" styleClass="pane_central" stylesheets="@../application/application.css">
+                           <children>
+                              <TableView fx:id="tabFacture" layoutX="103.0" layoutY="136.0" prefHeight="200.0" prefWidth="473.0" styleClass="tabFacture" stylesheets="@../application/application.css">
+                                <columns>
+                                  <TableColumn fx:id="clnProduit" prefWidth="181.0" text="PRODUITS" />
+                                  <TableColumn fx:id="clnQuantite" prefWidth="119.0" resizable="false" text="QUANTITES" />
+                                    <TableColumn fx:id="clnPrixUnitaire" prefWidth="170.0" text="PRIX UNITAIRE" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="101.0" layoutY="30.0" prefHeight="17.0" prefWidth="78.0" styleClass="factLab" text="FACTURE N°" />
+                              <Label layoutX="103.0" layoutY="70.0" prefHeight="17.0" prefWidth="35.0" styleClass="factLab" text="DU" />
+                              <Label layoutX="101.0" layoutY="103.0" prefHeight="24.0" prefWidth="88.0" styleClass="factLab" text="Pour Mr/Mme" />
+                              <JFXButton fx:id="btnImprimer" layoutX="472.0" layoutY="19.0" onAction="#imprimerCommande" prefHeight="39.0" prefWidth="105.0" style="-fx-background-color: #582170; -fx-font-weight: bold;" text="        imprimer" textFill="#fcfcfc">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <Label fx:id="numeroFacture" layoutX="189.0" layoutY="30.0" prefHeight="13.0" prefWidth="70.0" styleClass="factLab" />
+                              <Label fx:id="dateFacture" layoutX="189.0" layoutY="70.0" prefHeight="17.0" prefWidth="119.0" styleClass="factLab" />
+                              <Label fx:id="nomCliFact" layoutX="189.0" layoutY="107.0" prefHeight="17.0" prefWidth="209.0" styleClass="factLab" />
+                              <Label layoutX="287.0" layoutY="336.0" prefHeight="21.0" prefWidth="115.0" styleClass="factLab" text="           TOTAL" textFill="#0d0d0d" />
+                              <Label fx:id="totalFacture" layoutX="499.0" layoutY="338.0" prefHeight="17.0" prefWidth="78.0" styleClass="factLab" />
+                              <Label fx:id="totalEnLettre" layoutX="103.0" layoutY="361.0" prefHeight="49.0" prefWidth="466.0" style="-fx-font-weight: bold;" wrapText="true" />
+                              <ImageView fitHeight="28.0" fitWidth="56.0" layoutX="479.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_printer_maintenance_48px_1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+      				</Pane>
+      			</center>
+      		</BorderPane>
+         </center>
+         <left>
+            <Pane prefHeight="521.0" prefWidth="152.0" styleClass="pane_gauche" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton layoutX="1.0" layoutY="111.0" onAction="#open_fen_produit" prefHeight="37.0" prefWidth="150.0" stylesheets="@../application/application.css" text="       Produits" textFill="#e4dcdc">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-16.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="160.0" onAction="#open_fen_client" prefHeight="37.0" prefWidth="150.0" text="     Clients" textFill="#d7cbcb">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-22.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="209.0" onAction="#open_fen_commande" prefHeight="37.0" prefWidth="150.0" text="Commandes" textFill="#e1dede">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="261.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Factures     " textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding></JFXButton>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="15.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_basket_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="16.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_add_user_group_man_man_96px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="15.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_buy_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" layoutX="16.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_signing_a_document_48px.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="1.0" layoutY="314.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Paramètres" textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding>
+                  </JFXButton>
+                  <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="14.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_gears_48px.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

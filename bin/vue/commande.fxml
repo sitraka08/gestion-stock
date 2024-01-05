@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane_commande" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Commande_controlleur">
+   <children>
+      <BorderPane prefHeight="550.0" prefWidth="900.0">
+         <top>
+            <Pane prefHeight="29.0" prefWidth="900.0" styleClass="header" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="843.0" layoutY="7.0" prefHeight="12.0" prefWidth="48.0">
+                     <children>
+                        <Circle fx:id="btn_minimise" fill="#21ff3f" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
+                        <Circle fill="#ffbe21" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                        <Circle fx:id="btn_close" fill="#ff5a21" onMouseClicked="#close_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <BorderPane fx:id="bdpane_commande" prefHeight="200.0" prefWidth="200.0" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <center>
+                  <Pane prefHeight="200.0" prefWidth="522.0" styleClass="pane_central" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView fx:id="table_commande" layoutX="14.0" layoutY="113.0" onMouseClicked="#onClickTableCommande" prefHeight="332.0" prefWidth="509.0" stylesheets="@../application/application.css">
+                           <columns>
+                              <TableColumn fx:id="cln_code_com" minWidth="0.0" prefWidth="65.0" resizable="false" text="ID" />
+                              <TableColumn fx:id="cln_client_com" prefWidth="102.0" resizable="false" text="CLIENT" />
+                              <TableColumn fx:id="cln_produit_com" prefWidth="92.0" resizable="false" text="PRODUIT" />
+                              <TableColumn fx:id="cln_qte_com" minWidth="0.0" prefWidth="56.0" resizable="false" text="QTE" />
+                              <TableColumn fx:id="cln_date_com" prefWidth="122.0" resizable="false" text="DATE" />
+                              <TableColumn fx:id="cln_pu_com" minWidth="6.0" prefWidth="70.0" resizable="false" text="P.U" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="119.0" layoutY="453.0" mnemonicParsing="false" onAction="#supprimmerCommande" prefHeight="27.0" prefWidth="94.0" styleClass="button_supprimer" text="Supprimer" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnFacture" layoutX="31.0" layoutY="453.0" mnemonicParsing="false" onAction="#facturerCommande" prefHeight="27.0" prefWidth="88.0" styleClass="btn_commander" text="Facturer" textFill="#fff9f9">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="31.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_add_new_52px_2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="119.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_remove_60px.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="rechercheCommande" layoutX="370.0" layoutY="71.0" onKeyPressed="#onSearchCommande" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="491.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_search_contacts_48px.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="398.0" layoutY="449.0" prefHeight="17.0" prefWidth="32.0" style="-fx-font-weight: bold;" text="Total" />
+                        <Label fx:id="total" layoutX="455.0" layoutY="449.0" prefHeight="17.0" prefWidth="67.0" style="-fx-font-weight: bold;" />
+                     </children>
+                  </Pane>
+               </center>
+               <right>
+                  <StackPane prefHeight="527.0" prefWidth="218.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane fx:id="paneModifierCommande" prefHeight="526.0" prefWidth="218.0" styleClass="pane_central">
+                           <children>
+                              <Pane layoutX="10.0" layoutY="114.0" prefHeight="342.0" prefWidth="198.0" style="-fx-background-color: #ffffff; -fx-border-color: #D6D6D8;">
+                                 <children>
+                                    <Button fx:id="btnAnnulerModifCom" layoutX="120.0" layoutY="307.0" mnemonicParsing="false" onAction="#annulerModifCom" prefHeight="24.0" prefWidth="72.0" styleClass="button_annuler" text="Annuler">
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Pane layoutY="1.0" prefHeight="27.0" prefWidth="198.0" style="-fx-background-color: #41a840;">
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="10.0" layoutY="5.0" prefHeight="17.0" prefWidth="182.0" text="MODIFIER COMMANDE" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="121.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_back_to_96px.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                    <JFXTextField fx:id="cmModifQteCom" focusColor="#41a840" labelFloat="true" layoutX="76.0" layoutY="108.0" onKeyTyped="#changeQteModifCom" onMouseClicked="#on_change_qte_commander_mouse" opacity="0.89" prefHeight="27.0" prefWidth="100.0" promptText="Qte">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <Label fx:id="label_alert111" layoutX="78.0" layoutY="262.0" opacity="0.87" prefHeight="17.0" prefWidth="100.0" textFill="#ff734d">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXDatePicker fx:id="cmModifDateCom" defaultColor="#41a840" layoutX="28.0" layoutY="217.0" prefHeight="25.0" prefWidth="167.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXDatePicker>
+                                    <JFXButton fx:id="btnConfirmerModifCommande" layoutX="14.0" layoutY="307.0" onAction="#onConfirmModifCom" prefHeight="25.0" prefWidth="97.0" styleClass="button_ajouter" text="    Confirmer">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
+                                    <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="16.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_checked_48px_2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXComboBox fx:id="cmModifProdCom" depthTest="ENABLE" focusColor="#41a840" labelFloat="true" layoutX="25.0" layoutY="57.0" onMouseClicked="#on_change_combo_produit" opacity="0.91" prefHeight="25.0" prefWidth="149.0" promptText="produit" style="-fx-font-weight: bold;" />
+                                    <JFXTextField fx:id="cmModifClientCom" focusColor="#41a840" labelFloat="true" layoutX="79.0" layoutY="159.0" onKeyTyped="#changeClientModifCom" prefHeight="25.0" prefWidth="117.0" promptText="client" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" />
+                                    <JFXTextField fx:id="codeCLiModifCom" editable="false" focusColor="#41a840" labelFloat="true" layoutX="27.0" layoutY="159.0" opacity="0.7" prefHeight="25.0" prefWidth="43.0" promptText="code" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" />
+                                    <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="161.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_user_folder_30px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane layoutX="155.0" layoutY="181.0" prefHeight="9.0" prefWidth="38.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="label_alert1" layoutX="19.0" layoutY="271.0" prefHeight="17.0" prefWidth="167.0" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" textFill="#ff671b" />
+                                    <Label fx:id="label_alertModif" layoutX="16.0" layoutY="280.0" prefHeight="17.0" prefWidth="167.0" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" textFill="#ff671b" />
+                                    <JFXTextField fx:id="idComModif" editable="false" focusColor="#41a840" labelFloat="true" layoutX="27.0" layoutY="109.0" opacity="0.7" prefHeight="25.0" prefWidth="43.0" promptText="id com" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" text="id" />
+                                 </children>
+                              </Pane>
+                           </children></Pane>
+                        <Pane fx:id="pane_commander" prefHeight="200.0" prefWidth="226.0" styleClass="pane_central">
+                           <children>
+                              <Pane layoutX="10.0" layoutY="107.0" prefHeight="342.0" prefWidth="198.0" style="-fx-background-color: #ffffff; -fx-border-color: #D6D6D8;">
+                                 <children>
+                                    <Button fx:id="btn_annuler_modif_prod1" layoutX="120.0" layoutY="307.0" mnemonicParsing="false" onAction="#annuler_modif_prod" prefHeight="24.0" prefWidth="72.0" styleClass="button_annuler" text="Annuler">
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Pane layoutY="1.0" prefHeight="27.0" prefWidth="198.0" style="-fx-background-color: #006FC6;">
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="10.0" layoutY="5.0" prefHeight="17.0" prefWidth="182.0" text="ACHETER PRODUIT" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="121.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_back_to_96px.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                    <JFXTextField fx:id="cm_stock_commander" focusColor="#41a840" labelFloat="true" layoutX="28.0" layoutY="202.0" onKeyTyped="#on_change_qte_commander" onMouseClicked="#on_change_qte_commander_mouse" opacity="0.89" prefHeight="27.0" prefWidth="130.0" promptText="Qte">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <Label fx:id="label_alert11" layoutX="78.0" layoutY="262.0" opacity="0.87" prefHeight="17.0" prefWidth="100.0" textFill="#ff734d">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXDatePicker fx:id="cm_date_de_commande" defaultColor="#41a840" layoutX="26.0" layoutY="250.0" prefHeight="25.0" prefWidth="167.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></JFXDatePicker>
+                                    <JFXButton fx:id="btn_valider_commande" layoutX="14.0" layoutY="307.0" onAction="#on_valider_commande" prefHeight="25.0" prefWidth="97.0" styleClass="button_ajouter" text="Valider">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
+                                    <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="16.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_buy_60px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXComboBox fx:id="cm_produit_commander" depthTest="ENABLE" editable="true" focusColor="#41a840" labelFloat="true" layoutX="25.0" layoutY="57.0" onMouseClicked="#on_change_combo_produit" opacity="0.91" prefHeight="25.0" prefWidth="149.0" promptText="produit" style="-fx-font-weight: bold;" />
+                                    <JFXTextField fx:id="cm_nom_client" focusColor="#41a840" labelFloat="true" layoutX="79.0" layoutY="159.0" onKeyTyped="#on_change_client_com" prefHeight="25.0" prefWidth="117.0" promptText="client" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" />
+                                    <JFXTextField fx:id="code_client" editable="false" focusColor="#41a840" labelFloat="true" layoutX="27.0" layoutY="159.0" opacity="0.7" prefHeight="25.0" prefWidth="47.0" promptText="code" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" />
+                                    <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="161.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_user_folder_30px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane layoutX="155.0" layoutY="181.0" prefHeight="9.0" prefWidth="38.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="label_alert" layoutX="16.0" layoutY="28.0" prefHeight="17.0" prefWidth="167.0" style="-fx-font-weight: bold;" stylesheets="@../application/application.css" textFill="#ff671b" />
+                                    <JFXCheckBox fx:id="check_client" layoutX="28.0" layoutY="120.0" onAction="#onCheckClient" selected="true" text="Client precèdent" />
+                                 </children>
+                              </Pane>
+                              <JFXDatePicker fx:id="date1" defaultColor="#0ba805" layoutX="14.0" layoutY="69.0" onAction="#changeDate1" prefHeight="25.0" prefWidth="100.0" promptText="début">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXDatePicker>
+                              <JFXDatePicker fx:id="date2" defaultColor="#0eab02" layoutX="109.0" layoutY="69.0" onAction="#changeDate2" prefHeight="25.0" prefWidth="102.0" promptText="         fin">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXDatePicker>
+                              <Label layoutX="14.0" layoutY="39.0" prefHeight="17.0" prefWidth="36.0" style="-fx-font-weight: bold;" text="Tries:" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </StackPane>
+               </right>
+            </BorderPane>
+         </center>
+         <left>
+             <Pane prefHeight="521.0" prefWidth="152.0" styleClass="pane_gauche" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton layoutX="1.0" layoutY="111.0" onAction="#open_fen_produit" prefHeight="37.0" prefWidth="150.0" stylesheets="@../application/application.css" text="       Produits" textFill="#e4dcdc">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-16.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="160.0" onAction="#open_fen_client" prefHeight="37.0" prefWidth="150.0" text="     Clients" textFill="#d7cbcb">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-22.0" />
+                     </padding></JFXButton>
+                  <JFXButton fx:id="btn_open_commande" layoutX="1.0" layoutY="209.0" onAction="#open_fen_commande" prefHeight="37.0" prefWidth="150.0" text="Commandes" textFill="#e1dede">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="261.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Factures     " textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding></JFXButton>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="15.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_basket_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="16.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_add_user_group_man_man_96px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="15.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_buy_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" layoutX="16.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_signing_a_document_48px.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="1.0" layoutY="314.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Paramètres" textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding>
+                  </JFXButton>
+                  <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="14.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_gears_48px.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

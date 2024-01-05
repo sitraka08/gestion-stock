@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane_client" styleClass="anchorpane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Client_controlleur">
+   <children>
+      <BorderPane prefHeight="550.0" prefWidth="900.0">
+         <top>
+      		<Pane prefHeight="29.0" prefWidth="900.0" styleClass="header" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+      			<children>
+      				<HBox layoutX="843.0" layoutY="7.0" prefHeight="12.0" prefWidth="48.0">
+      					<children>
+      						<Circle fx:id="btn_minimise" fill="#21ff3f" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
+      						<Circle fill="#ffbe21" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+      							<HBox.margin>
+      								<Insets left="5.0" />
+      							</HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+      						</Circle>
+      						<Circle fx:id="btn_close" fill="#ff5a21" onMouseClicked="#close_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+      							<HBox.margin>
+      								<Insets left="5.0" right="5.0" />
+      							</HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+      						</Circle>
+      					</children>
+      				</HBox>
+      			</children>
+      		</Pane>
+         </top>
+         <center>
+      		<BorderPane fx:id="bdpane_client" onKeyPressed="#on_enter_pressed_inclient" prefHeight="200.0" prefWidth="200.0" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+      			<center>
+      				<Pane prefHeight="521.0" prefWidth="540.0" styleClass="pane_central" BorderPane.alignment="CENTER">
+      					<children>
+      						<TableView fx:id="table_client" accessibleRole="LIST_VIEW" layoutX="16.0" layoutY="108.0" onKeyPressed="#on_delete_pressed_inclient" onMouseClicked="#on_click_table_client" prefHeight="340.0" prefWidth="500.0" styleClass="column-header-background" stylesheets="@../application/application.css">
+      							<columns>
+      								<TableColumn fx:id="cln_codecli" prefWidth="241.0" resizable="false" text="CODE CLIENT" />
+      								<TableColumn fx:id="cln_nomcli" prefWidth="256.0" resizable="false" text="NOM CLIENT" />
+      							</columns>
+      							<cursor>
+      								<Cursor fx:constant="DEFAULT" />
+      							</cursor>
+      						</TableView>
+      						<TextField fx:id="field_recherche_client" layoutX="360.0" layoutY="57.0" promptText="recherche client">
+      							<font>
+      								<Font name="System Bold" size="12.0" />
+      							</font>
+      						</TextField>
+      						<ImageView fitHeight="21.0" fitWidth="30.0" layoutX="489.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+      							<image>
+      								<Image url="@../images/icons8_search_client_48px_1.png" />
+      							</image>
+      						</ImageView>
+      					</children>
+      				</Pane>
+      			</center>
+               <right>
+                  <Pane prefHeight="521.0" prefWidth="218.0" styleClass="pane_central" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane fx:id="pane_modifier_client" layoutX="5.0" layoutY="110.0" prefHeight="342.0" prefWidth="198.0" style="-fx-background-color: white;">
+                           <children>
+                              <Pane layoutY="-2.0" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #41a840;">
+                                 <children>
+                                    <Label contentDisplay="CENTER" layoutX="45.0" layoutY="5.0" prefHeight="17.0" prefWidth="109.0" text="MODIFIER CLIENT" textFill="#fff0f0" />
+                                 </children>
+                              </Pane>
+                              <JFXButton fx:id="btn_confirmer_modif_client" layoutX="14.0" layoutY="303.0" onAction="#confirmer_modif_client" prefHeight="25.0" prefWidth="86.0" styleClass="button_confirmer" stylesheets="@../application/application.css" text="ok">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></JFXButton>
+                              <JFXButton fx:id="btn_annuler_modif_client" layoutX="106.0" layoutY="303.0" onAction="#annuler_modif_client" prefHeight="25.0" prefWidth="90.0" styleClass="button_annuler" stylesheets="@../application/application.css" text="annuler">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></JFXButton>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_verified_account_48px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="106.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_back_to_96px.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="code_client_modif" editable="false" focusColor="#41a840" labelFloat="true" layoutX="16.0" layoutY="144.0" opacity="0.74" prefHeight="27.0" prefWidth="169.0" promptText="code client" style="-fx-font-weight: bold;" />
+                              <JFXTextField fx:id="nom_client_modif" focusColor="#41a840" labelFloat="true" layoutX="16.0" layoutY="215.0" onKeyTyped="#cli_change_nomcli" prefHeight="27.0" prefWidth="169.0" promptText="Nom client" style="-fx-font-weight: bold;" />
+                              <ImageView fitHeight="107.0" fitWidth="123.0" layoutX="47.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_management_96px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </right>
+      		</BorderPane>
+         </center>
+         <left>
+            <Pane prefHeight="521.0" prefWidth="152.0" styleClass="pane_gauche" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton layoutX="1.0" layoutY="111.0" onAction="#open_fen_produit" prefHeight="37.0" prefWidth="150.0" stylesheets="@../application/application.css" text="       Produits" textFill="#e4dcdc">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-16.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="160.0" onAction="#open_fen_client" prefHeight="37.0" prefWidth="150.0" text="     Clients" textFill="#d7cbcb">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-22.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="209.0" onAction="#open_fen_commande" prefHeight="37.0" prefWidth="150.0" text="Commandes" textFill="#e1dede">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="261.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Factures     " textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding></JFXButton>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="15.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_basket_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="16.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_add_user_group_man_man_96px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="15.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_buy_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" layoutX="16.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_signing_a_document_48px.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="1.0" layoutY="314.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Paramètres" textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding>
+                  </JFXButton>
+                  <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="14.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_gears_48px.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

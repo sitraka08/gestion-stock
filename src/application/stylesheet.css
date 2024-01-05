@@ -1,0 +1,6 @@
+.dialog-pane .button{
+	-fx-border-color: red;
+	-fx-background-color: #006FC6;
+	-fx-text-fill: red;
+	
+}

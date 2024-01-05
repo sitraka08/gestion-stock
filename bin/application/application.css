@@ -1,0 +1,160 @@
+*{
+	-fx-font-style: italic;
+}
+
+.loginpane{
+	-fx-background-color: rgba(255, 255,255, 1);
+}
+
+.header{
+	-fx-background-color: #0074D0;
+}
+.pane_gauche{
+	-fx-background-color: #434343;
+	-fx-font-weight: bold;
+	-fx-text-fill: black;
+}
+
+
+
+.pane_central{
+	-fx-background-color: #E7E7E7;
+}
+.button{
+	-fx-background-color: transparent;
+	-fx-font-style: none;
+	
+}
+
+.pane_gauche .button:hover{
+	-fx-border-color: #2E9C9D;
+	-fx-border-width: 1.5;
+}
+
+
+.button_ajouter{
+	-fx-background-color: #4CAF50;
+	-fx-text-fill: white;
+
+}
+
+.reference{
+	-fx-text-fill: black;
+
+}
+
+.button_ajouter2{
+	-fx-background-color: #0884D8;
+	-fx-text-fill: white;
+}
+
+.button_confirmer{
+	-fx-background-color: #4CAF50;
+	-fx-text-fill: white;
+}
+.button_supprimer{
+	-fx-background-color: #7D7D7D;
+	-fx-text-fill: white;
+	
+}
+
+.button_annuler{
+	-fx-background-color: #A9A9A9;
+	-fx-text-fill: white;
+}
+
+.recherche{
+	-fx-background-radius: 5;
+}
+
+
+
+.table-view .column-header .label{
+	-fx-background-color: #006FC6;
+	-fx-text-fill: white;
+	
+}
+TableColumnHeader{
+	-fx-background-color: #006FC6;
+}
+
+.tabFacture .column-header .label{
+	-fx-background-color: #4CAF50;
+}
+.tabFacture TableColumnHeader{
+	-fx-background-color: #4CAF50;
+}
+
+.tabFacture{
+	-fx-text-fill: black;
+}
+.btnclose:hover{
+	-fx-border-color: black;
+	-fx-border-width: 1.5;
+}
+
+.table-column{
+	-fx-alignment: CENTER;
+	-fx-font-weight: bold;
+	-fx-border-color: transparent;
+
+	
+}
+/* .table-row-cell:odd{
+	-fx-background-color: #F1F1F1;
+} */
+.table-row-cell:hover{
+	-fx-background-color: #C4E4C5;
+	-fx-text-fill: black;
+	-fx-border-color:transparent;
+	
+}
+
+.table-row-cell:selected{
+	-fx-background-color: #DDB7C1;
+	-fx-border-color:transparent;
+	
+	
+}
+.table-view{
+	-fx-background-color: transparent;
+}
+
+.dialog_alert{
+	-fx-font-weight: bold;
+	-fx-background-color: #D8D8D8;
+
+	
+}
+
+.dialog_alert .header-panel, .container, .footer-panel{
+	-fx-background-color: #D8D8D8;
+}
+
+.dialog_alert .button{
+	-fx-background-color: #4CAF50;
+	-fx-text-fill: white;
+	
+}
+.dialog_alert .button:hover{
+	-fx-background-color: #0884D8;
+	-fx-text-fill: white;
+	-fx-border-width: 0;
+	
+}
+
+.btn_commander{
+	-fx-background-color: #2E7DA8;
+	-fx-text-fill: white;
+}
+
+
+.loginltext {
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	
+}
+
+.factLab{
+	-fx-font-weight: bold;
+}

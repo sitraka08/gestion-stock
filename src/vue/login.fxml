@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane fx:id="anchorpane_login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#on_action_login" prefHeight="382.0" prefWidth="600.0" styleClass="loginpane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Login_controlleur">
+   <children>
+      <BorderPane layoutX="1.0" prefHeight="382.0" prefWidth="600.0" styleClass="loginpane" stylesheets="@../application/application.css">
+         <right>
+            <Pane prefHeight="360.0" prefWidth="371.0" styleClass="pane_gauche" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXTextField fx:id="edit_username" focusColor="WHITE" labelFloat="true" layoutX="83.0" layoutY="81.0" prefHeight="32.0" prefWidth="211.0" promptText="USERNAME" styleClass="loginltext" stylesheets="@../application/application.css" unFocusColor="#ff8100fc" />
+                  <JFXButton fx:id="btn_se_connecter" layoutX="80.0" layoutY="288.0" onMouseClicked="#se_connecter" prefHeight="49.0" prefWidth="217.0" styleClass="button_confirmer" text="SE CONNECTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></JFXButton>
+                  <Label fx:id="label_login" layoutX="79.0" layoutY="245.0" prefHeight="24.0" prefWidth="220.0" style="-fx-font-weight: bold;" textFill="#eb6c0c" />
+                  <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="263.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_user_24px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="263.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_key_2_48px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="253.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_lock_48px.png" />
+                     </image>
+                  </ImageView>
+                  <JFXPasswordField fx:id="edit_password" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="180.0" prefHeight="36.0" prefWidth="206.0" promptText="PASSWORD" styleClass="loginltext" stylesheets="@../application/application.css" unFocusColor="#ff8600" />
+               </children>
+            </Pane>
+         </right>
+         <left>
+            <Pane prefHeight="382.0" prefWidth="228.0" styleClass="footer-panel" stylesheets="@../application/application.css" BorderPane.alignment="CENTER" />
+         </left>
+         <top>
+            <Pane prefHeight="22.0" prefWidth="522.0" styleClass="pane_gauche" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Circle fx:id="btn_exit_login" fill="#ff8321" layoutX="581.0" layoutY="11.0" onMouseClicked="#exit_login" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Circle>
+                  <Circle fx:id="btn_minimize_login" fill="#5dda23" layoutX="558.0" layoutY="11.0" onMouseClicked="#minimize_login" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Circle>
+                  <Pane layoutX="-8.0" layoutY="-10.0" prefHeight="40.0" prefWidth="237.0" styleClass="footer-panel" stylesheets="@../application/application.css" />
+               </children></Pane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

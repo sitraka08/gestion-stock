@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane_produit" prefHeight="550.0" prefWidth="900.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.Produit_controlleur">
+   <children>
+      <BorderPane prefHeight="550.0" prefWidth="900.0">
+         <top>
+            <Pane prefHeight="29.0" prefWidth="900.0" styleClass="header" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="843.0" layoutY="7.0" prefHeight="12.0" prefWidth="48.0">
+                     <children>
+                        <Circle fx:id="btn_minimise" fill="#21ff3f" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
+                        <Circle fill="#ffbe21" onMouseClicked="#minimize_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                        <Circle fx:id="btn_close" fill="#ff5a21" onMouseClicked="#close_fenetre" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </top>
+         <center>
+                  <BorderPane fx:id="bdpane_produit" onKeyPressed="#on_delete_prod_key_pressed" prefHeight="200.0" prefWidth="200.0" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+                     <center>
+                        <Pane prefHeight="200.0" prefWidth="522.0" styleClass="pane_central" BorderPane.alignment="CENTER">
+                           <children>
+                              <TableView fx:id="table_produit" layoutX="16.0" layoutY="108.0" onMouseClicked="#clic_table_produit" prefHeight="341.0" prefWidth="501.0" styleClass="column-header-background" stylesheets="@../application/application.css">
+                                <columns>
+                                  <TableColumn fx:id="col_reference" prefWidth="90.0" resizable="false" text="REFERENCE" />
+                                  <TableColumn fx:id="col_designation" prefWidth="157.0" resizable="false" text="DESIGNATION" />
+                                    <TableColumn fx:id="col_prix_unitaire" minWidth="0.0" prefWidth="129.0" resizable="false" text="P.U" />
+                                    <TableColumn fx:id="col_stocks" minWidth="6.0" prefWidth="123.0" resizable="false" text="STOCKS" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="btn_delete_produit" layoutX="422.0" layoutY="452.0" mnemonicParsing="false" onMouseClicked="#on_delete_produit" prefHeight="27.0" prefWidth="94.0" styleClass="button_supprimer" text="Supprimer" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                              </Button>
+                              <Button fx:id="btn_acheter_produit_inprod" layoutX="324.0" layoutY="452.0" mnemonicParsing="false" onMouseClicked="#on_acheter_inprod" prefHeight="27.0" prefWidth="98.0" styleClass="btn_commander" text="Acheter" textFill="#fff9f9">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                              </Button>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="324.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_buy_60px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="422.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_remove_60px.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField fx:id="edit_search_prod" layoutX="355.0" layoutY="67.0" onKeyPressed="#search_produit" onMouseExited="#exit_search_product" onMouseReleased="#exit_search_product" promptText="recherche produit">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fitHeight="21.0" fitWidth="30.0" layoutX="480.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_search_client_48px_1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </center>
+                     <right>
+                        <StackPane prefHeight="527.0" prefWidth="218.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Pane fx:id="pane_modifier_produit" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="218.0" styleClass="pane_central" stylesheets="@../application/application.css">
+                                 <children>
+                                    <Pane layoutX="10.0" layoutY="106.0" prefHeight="342.0" prefWidth="198.0" style="-fx-background-color: #ffffff; -fx-border-color: #D6D6D8;">
+                                       <children>
+                                          <Label layoutX="24.0" layoutY="57.0" prefHeight="17.0" prefWidth="84.0" text="REFERENCE" textFill="#141313">
+                                             <font>
+                                                <Font name="Arial Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="btn_confirm_update_prod" layoutX="19.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#on_confirm_update_prod" prefHeight="21.0" prefWidth="81.0" styleClass="button_confirmer" stylesheets="@../application/application.css" text="Confirmer">
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                          </Button>
+                                          <Button fx:id="btn_annuler_modif_prod" layoutX="109.0" layoutY="285.0" mnemonicParsing="false" onAction="#annuler_modif_prod" prefHeight="21.0" prefWidth="72.0" styleClass="button_annuler" text="Annuler">
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                          </Button>
+                                          <Pane layoutY="1.0" prefHeight="27.0" prefWidth="198.0" style="-fx-background-color: #4CAF50;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="10.0" layoutY="5.0" prefHeight="17.0" prefWidth="182.0" text="MODIFIER PRODUIT" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="22.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8_verified_account_48px.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="109.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8_back_to_96px.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="reference_modif" editable="false" focusColor="#3ccd2f" layoutX="113.0" layoutY="54.0" opacity="0.66" prefHeight="24.0" prefWidth="64.0" promptText="ref">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="designation_modif" focusColor="#42c65f" labelFloat="true" layoutX="24.0" layoutY="100.0" opacity="0.77" prefHeight="25.0" prefWidth="154.0" promptText="designation">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="prix_unitaire_modif" focusColor="#3fd373" labelFloat="true" layoutX="22.0" layoutY="159.0" onKeyTyped="#onchane_prix_unitaire_modif" onMouseClicked="#onchane_prix_unitaire_modif_mouse" opacity="0.85" prefHeight="25.0" prefWidth="154.0" promptText="prix unitaire">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="stocks_modif" focusColor="#43c35c" labelFloat="true" layoutX="25.0" layoutY="216.0" onDragDetected="#onchange_stocks" onDragDone="#onchange_stocks" onDragEntered="#onchange_stocks" onKeyTyped="#onchange_stocks_modif" onMouseClicked="#onchange_stocks_modif_mouse" opacity="0.89" prefHeight="29.0" prefWidth="153.0" promptText="stocks">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <Label fx:id="label_alert1" layoutX="24.0" layoutY="262.0" opacity="0.87" prefHeight="17.0" prefWidth="154.0" textFill="#ff734d">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane_ajouter_produit" prefHeight="200.0" prefWidth="218.0" styleClass="pane_central" stylesheets="@../application/application.css">
+                                 <children>
+                                    <Pane layoutX="6.0" layoutY="109.0" onKeyPressed="#on_enter_pressed_inprod" prefHeight="342.0" prefWidth="198.0" style="-fx-background-color: #ffffff; -fx-border-color: #D6D6D8;">
+                                       <children>
+                                          <Label layoutX="24.0" layoutY="57.0" prefHeight="17.0" prefWidth="84.0" text="REFERENCE" textFill="#141313">
+                                             <font>
+                                                <Font name="Arial Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="btn_ajouter_produit_bdd2" layoutX="19.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#ajouter_produit_bdd" prefHeight="21.0" prefWidth="71.0" styleClass="button_confirmer" stylesheets="@../application/application.css" text="Ajouter">
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                          </Button>
+                                          <Button layoutX="109.0" layoutY="285.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="72.0" styleClass="button_annuler" text="Annuler">
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                          </Button>
+                                          <Pane layoutY="1.0" prefHeight="27.0" prefWidth="198.0" style="-fx-background-color: #006FC6;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="10.0" layoutY="5.0" prefHeight="17.0" prefWidth="182.0" text="AJOUTER PRODUIT" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                    </Pane>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="22.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8_add_new_52px_2.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="109.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8_back_to_96px.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="reference" editable="false" focusColor="#3ccd2f" layoutX="113.0" layoutY="54.0" opacity="0.66" prefHeight="24.0" prefWidth="64.0" promptText="ref">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="designation" focusColor="#42c65f" labelFloat="true" layoutX="24.0" layoutY="100.0" onKeyTyped="#on_change_designation" onMouseClicked="#on_change_designation_mouse" opacity="0.77" prefHeight="25.0" prefWidth="154.0" promptText="designation">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="prix_unitaire" focusColor="#3fd373" labelFloat="true" layoutX="22.0" layoutY="159.0" onKeyTyped="#on_prix_unit_changed" onMouseClicked="#onchane_prix_unitaire_mouse" opacity="0.85" prefHeight="25.0" prefWidth="154.0" promptText="prix unitaire">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="stocks" focusColor="#43c35c" labelFloat="true" layoutX="25.0" layoutY="216.0" onKeyTyped="#onchange_stocks" onMouseClicked="#onchange_stocks_mouse" opacity="0.89" prefHeight="29.0" prefWidth="153.0" promptText="stocks">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <Label fx:id="label_alert" layoutX="24.0" layoutY="262.0" opacity="0.87" prefHeight="17.0" prefWidth="154.0" textFill="#ff734d">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="alert_onenter" layoutX="27.0" layoutY="254.0" opacity="0.7" prefHeight="17.0" prefWidth="151.0" textFill="#d30a0a">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </StackPane>
+                     </right>
+                  </BorderPane>
+         </center>
+          <left>
+             <Pane prefHeight="521.0" prefWidth="152.0" styleClass="pane_gauche" stylesheets="@../application/application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton layoutX="1.0" layoutY="111.0" onAction="#open_fen_produit" prefHeight="37.0" prefWidth="150.0" stylesheets="@../application/application.css" text="       Produits" textFill="#e4dcdc">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-16.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="160.0" onAction="#open_fen_client" prefHeight="37.0" prefWidth="150.0" text="     Clients" textFill="#d7cbcb">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="-22.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="209.0" onAction="#open_fen_commande" prefHeight="37.0" prefWidth="150.0" text="Commandes" textFill="#e1dede">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding></JFXButton>
+                  <JFXButton layoutX="1.0" layoutY="261.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Factures     " textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding></JFXButton>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="15.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_basket_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="16.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_add_user_group_man_man_96px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="15.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_buy_96px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" layoutX="16.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_signing_a_document_48px.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="1.0" layoutY="314.0" onAction="#open_fen_autre" prefHeight="37.0" prefWidth="150.0" text="Paramètres" textFill="#e4dfdf">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets left="18.0" />
+                     </padding>
+                  </JFXButton>
+                  <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="14.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_gears_48px.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
